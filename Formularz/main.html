@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="index.php" method="post">
+    <ul>
+        <li>
+            Imie i naziwsko *
+            <input type="text" name="name" required placeholder="imie i naziwsko">
+
+        <li>
+            Adres email *
+            <input type="text" name="email" required placeholder="Twój adres e-mail np j.kowalski">
+        </li>
+        <li>
+            Telefon kontaktowy
+            <input type ="text" name="phone" required placeholder="Dozwolone znaki - cyfry, spacje">
+        </li>
+        <li>
+            Wybierz temat *
+            <select name="topic" required>
+                <option value="Wykonanie strony internetowej nr #1">Wykonanie strony internetowej nr #1</option>
+                <option value="Wykonanie strony internetowej #2">Wykonanie strony internetowej #2</option>
+                <option value="Wykonanie strony internetowej nr #3">Wykonanie strony internetowej nr #3</option>
+            </select>
+        </li>
+        <li>
+            Treść wiadomości *
+            <textarea tekst ="" name="message" required placeholder="Wpisz tutaj treść swojej wiadomości..."></textarea>
+        </li>
+        <li>
+            Preformowana forma kontatku
+            <ul>
+                <li>
+                    <label>
+                        <input type="checkbox" name="email"> E-Mail
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox" name="phone"> Telefon
+                    </label>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+        Posiadasz już storonę www?
+            <ul>
+                <li>
+                    <label>
+                        <input type="radio" name="0"> Tak
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="radio" name="1"> Nie
+                    </label>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            Załączniki
+            <br>
+            <input type="file" name="file">
+            <br>
+        </li>
+    </ul>
+    <br>
+    <input type="submit" name="submit" value="Wyślij formularz">
+    <br>
+
+</form>
+
+<!--
+//<TD>Imię i nazwisko *:</TD>
+<TD><INPUT name="imie"></TD>
+
+<TD>adres  e-mail*:</TD>
+<TD><INPUT adres="adres"></TD>
+
+
+<TD>Telefon kontaktów:</TD>
+<TD><INPUT adres="adres"></TD>
+-->
+
+</body>
+</html>
