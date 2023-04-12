@@ -1,38 +1,39 @@
 <?php
-if(file_exists("licznik.txt")){
-    $fileDescriptor = fopen("licznik.txt", "r");
-    $dane = fread($fileDescriptor, 8192);
-    fclose($fileDescriptor);
-    $dane++;
 
-    $file = "licznik.txt"; // przypisanie zmiennej $file nazwy pliku
+        if(file_exists("licznik.txt")){
+            $fileDescriptor = fopen("licznik.txt", "r");
+            $dane = fread($fileDescriptor, 8192);
+            fclose($fileDescriptor);
+            $dane++;
 
-    $fp = fopen($file, "a");// uchwyt pliku, otwarcie do dopisania
+            $file = "licznik.txt"; // przypisanie zmiennej $file nazwy pliku
 
-    flock($fp, 2); // blokada pliku do zapisu
+            $fp = fopen($file, "a");// uchwyt pliku, otwarcie do dopisania
 
-
-    // to trzeba zrobić w twoim pliku
-    file_put_contents('licznik.txt', '');
-    fwrite($fp, $dane); // zapisanie danych do pliku
+            flock($fp, 2); // blokada pliku do zapisu
 
 
-    flock($fp, 3); // odblokowanie pliku
+            // to trzeba zrobić w twoim pliku
+            file_put_contents('licznik.txt', '');
+            fwrite($fp, $dane); // zapisanie danych do pliku
 
-    fclose($fp); // zamknięcie pliku
-    echo "The data has been saved!<br/>";
 
-}else {
-    $myfile = fopen("licznik.txt", "w");
+            flock($fp, 3); // odblokowanie pliku
 
-    $file = "licznik.txt";
-    $fp = fopen($file, "a");// uchwyt pliku, otwarcie do dopisania
-    flock($fp, 2); // blokada pliku do zapisu
-    file_put_contents('licznik.txt', '');
-    fwrite($fp, 1); // zapisanie danych do pliku
-    flock($fp, 3); // odblokowanie pliku
+            fclose($fp); // zamknięcie pliku
+            echo "The data has been saved!<br/>";
 
-    fclose($fp); // zamknięcie pliku
-    echo "The data has been saved!<br/>";
+        }else {
+            $myfile = fopen("licznik.txt", "w");
+
+            $file = "licznik.txt";
+            $fp = fopen($file, "a");// uchwyt pliku, otwarcie do dopisania
+            flock($fp, 2); // blokada pliku do zapisu
+            file_put_contents('licznik.txt', '');
+            fwrite($fp, 1); // zapisanie danych do pliku
+            flock($fp, 3); // odblokowanie pliku
+
+            fclose($fp); // zamknięcie pliku
+            echo "The data has been saved!<br/>";
 }
 ?>
